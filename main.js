@@ -64,6 +64,8 @@ async function getWeather() {
 function displayWeather(data) { 
     const weatherInfoDiv = document.querySelector(".weather-info");
     const tempDivInfo = document.querySelector(".temp-div");
+      const hourlyForecastDiv = document.querySelector(".hourly-forecast");
+      hourlyForecastDiv.innerHTML = "";
     weatherInfoDiv.innerHTML = ''
     tempDivInfo.innerHTML = ''
 
