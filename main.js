@@ -33,30 +33,33 @@ async function handlerSearch(evt) {
 async function getWeather() {  
     try {
         const response = await axios.get(
-          `https://api.openweathermap.org/data/2.5/weather?q=${queryValue}&appid=${apiKeyWeather}`
+            `https://api.openweathermap.org/data/2.5/weather?q=${queryValue}&appid=${apiKeyWeather}`
         );
 
         const responseForecast = await axios.get(
-          `https://api.openweathermap.org/data/2.5/forecast?q=${queryValue}&appid=${apiKeyWeather}`
+            `https://api.openweathermap.org/data/2.5/forecast?q=${queryValue}&appid=${apiKeyWeather}`
         );
-   if (response.status !== 200) {
-     Notiflix.Notify.failure("Failed to fetch current weather data.");
-     return;
-   }
+        if (response.status !== 200) {
+            Notiflix.Notify.failure("Failed to fetch current weather data.");
+            return;
+        }
 
-   if (responseForecast.status !== 200) {
-     Notiflix.Notify.failure("Failed to fetch weather forecast data.");
-     return;
-   }
-          return {
+        if (responseForecast.status !== 200) {
+            Notiflix.Notify.failure("Failed to fetch weather forecast data.");
+            return;
+        }
+        return {
             currentWeather: response.data,
             forecast: responseForecast.data.list,
-          };
+        };
     }
-    catch (error) { 
+    catch (error) {
         Notiflix.Notify.failure("City not found.");
         console.error("Error:", error);
-          return;
+        return;
+    }
+    finally { 
+        formSearch.reset()
     }
 
 }
