@@ -101,6 +101,39 @@ button:hover{
     color: #fff;
     margin-top: 10px;
 }
+@media (max-width: 480px) {
+    .weather-container {
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    input,
+    button {
+        font-size: 12px;
+    }
+
+    .temp-div p {
+        font-size: 6vw;
+    }
+
+    .weather-info {
+        font-size: 4vw;
+    }
+
+    .hourly-forecast {
+        margin-top: 10px;
+    }
+
+    .hourly-item {
+        width: 30%;
+        max-width: 60px;
+    }
+
+    .hourly-item img {
+        width: 20px;
+        height: 20px;
+    }
+}
 
 
 
