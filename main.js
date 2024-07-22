@@ -1,13 +1,13 @@
 const apiKeyWeather = "af850ee8c50866687e77ab33cc12bdbb";
  const apiKeyImage = "44752364-afb0e3777e04db30cc3f88e82";
-const formSearch = document.querySelector(".search-form");
+export const formSearch = document.querySelector(".search-form");
 formSearch.addEventListener("submit", handlerSearch)
 
 let queryValue
 
 
 
-async function handlerSearch(evt) {
+export async function handlerSearch(evt) {
     evt.preventDefault()
     const form = evt.currentTarget;
     queryValue = form.elements.search.value.trim()
@@ -18,11 +18,8 @@ async function handlerSearch(evt) {
     // ПОдставить Notiflix для алертов
     try {
         const { currentWeather, forecast } = await getWeather(queryValue)
-
         displayWeather(currentWeather)
         displayHourlyForecast(forecast)
-    //    getBackroungImage(currentWeather)
-        
         
     }
     catch (error) {

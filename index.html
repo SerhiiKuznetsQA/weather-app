@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notiflix@3.2.5/dist/notiflix-3.2.5.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.6/xlsx.full.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/notiflix@3.2.5/dist/notiflix-aio-3.2.5.min.js"></script>
     <link rel="stylesheet" href="./style.css">
 <title>Weather_App</title>
@@ -13,6 +14,11 @@
         <h2>Weather App</h2>
     <form class="search-form">
             <input type="text" name="search" id="city" placeholder="Enter city">
+            <ul class="sugesstions">
+                <li>
+                    Searh word
+                </li>
+            </ul>
             <button type="submit" class="get-weather">Search</button>
     </form>
         <div class="temp-div"></div>
@@ -20,6 +26,7 @@
         <div class="hourly-forecast"></div>    
     </div>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="module" src="./city.js"></script>
     <script type="module" src="./main.js"></script>
 </body>
 </html>
