@@ -2247,7 +2247,7 @@ function handlerGetSuggestion(evt) {
     return
   }
 
-return searchInput.value = evt.target.textContent
+return searchInput.value = evt.currentTarget.textContent
   
 }
 
@@ -2265,11 +2265,15 @@ function getOptions(word,a) {
 // console.log(getOptions("de" , a));
 
 function displaySugesstion() { 
+ 
   const sugesstions = getOptions(this.value, a)
   const markup = sugesstions.map(a => {
-    return `<li><span>${a}</span></li>`
+    return `<li class='suggestion-item'><span>${a}</span></li>`;
    }).slice(0,5).join('')
-searchSugestion.innerHTML = markup
+  searchSugestion.innerHTML = markup
+   if (searchInput.value === "") {
+     return searchSugestion.innerHTML = ''
+   }
 }
 
 
